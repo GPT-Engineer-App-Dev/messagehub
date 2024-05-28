@@ -49,10 +49,6 @@ export const useAddPost = () => {
 };
 
 export const queryClient = new QueryClient();
-export const SupabaseProvider = ({ children }) => {
-    return (
-        <QueryClientProvider client={queryClient}>
-            {children}
-        </QueryClientProvider>
-    );
-};
+export function SupabaseProvider({ children }) {
+    return React.createElement(QueryClientProvider, { client: queryClient }, children);
+}
